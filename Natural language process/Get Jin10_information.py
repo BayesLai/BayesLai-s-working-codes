@@ -73,11 +73,8 @@ def get_news(unix_time):
             i['remark']
         ])
         else:
-            if news_time<=last_news_time:
-                print("已经有相关记录")
-                pass
-            else:
-                record_to_csv([
+            
+            record_to_csv([
                     utc_2_pk(i['time']),
                     i['type'],
                     # 如果是文字内容，则直接读取content内容，否则使用字符串操作符讲数据重新组合成文本语句
@@ -87,7 +84,7 @@ def get_news(unix_time):
                     i['channel'],
                     i['remark']
                 ])
-                counts+=1
+            counts+=1
         print("更新%d条，更新率%f"%(counts,float(counts)/len(loads_result['newest_news'])))
 '''
 获取当前时间
