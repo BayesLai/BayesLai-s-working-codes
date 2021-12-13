@@ -36,7 +36,7 @@ def utc_2_pk(utctime_str:str,format='%Y-%m-%dT%H:%M:%S.%fZ')->datetime:
 def get_news(unix_time):
     context = _create_unverified_context()
     print("Now unix_time",unix_time)
-    req = Request(url="https://www.jin10.com/flash_newest.js?" + str(1625359660))
+    req = Request(url="https://www.jin10.com/flash_newest.js?" + str(unix_time))
     html = urlopen(req, context=context).read()
     # dsObj=BeautifulSoup(html.read())
     # 去掉原来javascript中变量定义的语句
